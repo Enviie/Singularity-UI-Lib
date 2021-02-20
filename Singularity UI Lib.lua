@@ -96,7 +96,7 @@ for i = 160, 700 do
 end
 function GenerateName(x)
     local e = ""
-    for _ = 1, tonumber(x) or math.random(10, 50) do
+    for _ = 1, tonumber(x) or math.random(10, 999) do
         e = e .. chars[math.random(1, #chars)]
     end
     return e
