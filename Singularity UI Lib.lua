@@ -5,11 +5,16 @@
 --]]
 
 do
-	local imgui = game:GetService("CoreGui"):FindFirstChild("imgui")
-	if imgui then imgui:Destroy() end
+	local CoreGui = game:GetService("CoreGui")
+	local imgui = CoreGui:FindFirstChild("Prefabs", true)
+	if imgui then imgui.Parent:Destroy() end
 end
 
 local imgui = Instance.new("ScreenGui")
+local synprotectsupport = (type(syn.protect_gui) == "function" and syn.protect_gui) or false
+if synprotectsupport then
+    pcall(syn.protect_gui, imgui)
+end	
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
 local Window = Instance.new("ImageLabel")
@@ -82,7 +87,22 @@ local Input = Instance.new("TextButton")
 local Input_Roundify_4px = Instance.new("ImageLabel")
 local Windows = Instance.new("Frame")
 
-imgui.Name = "imgui"
+local chars = {}
+for i = 17700, 17800 do
+    chars[#chars + 1] = utf8.char(i)
+end
+for i = 160, 700 do
+    chars[#chars + 1] = utf8.char(i)
+end
+function GenerateName(x)
+    local e = ""
+    for _ = 1, tonumber(x) or math.random(10, 50) do
+        e = e .. chars[math.random(1, #chars)]
+    end
+    return e
+end
+
+imgui.Name = GenerateName(x)
 imgui.Parent = game:GetService("CoreGui")
 
 Prefabs.Name = "Prefabs"
