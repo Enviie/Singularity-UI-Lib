@@ -14,7 +14,7 @@ local imgui = Instance.new("ScreenGui")
 local synprotectsupport = (type(syn.protect_gui) == "function" and syn.protect_gui) or false
 if synprotectsupport then
     pcall(syn.protect_gui, imgui)
-    warn("syn.protectgui supported!", imgui)
+    warn("syn.protectgui supported!")
 else
     warn("syn.protectgui isn't supported for your exploit")
 end		
