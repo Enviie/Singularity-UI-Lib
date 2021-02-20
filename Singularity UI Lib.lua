@@ -13,7 +13,7 @@ end
 local imgui = Instance.new("ScreenGui")
 local synprotectsupport = (type(syn.protect_gui) == "function" and syn.protect_gui) or false
 if synprotectsupport then
-    
+    pcall(syn.protect_gui, imgui)
 end	
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
