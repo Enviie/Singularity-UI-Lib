@@ -14,7 +14,10 @@ local imgui = Instance.new("ScreenGui")
 local synprotectsupport = (type(syn.protect_gui) == "function" and syn.protect_gui) or false
 if synprotectsupport then
     pcall(syn.protect_gui, imgui)
-end	
+    warn("syn.protectgui supported!", imgui)
+else
+    warn("syn.protectgui isn't supported for your exploit")
+end		
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
 local Window = Instance.new("ImageLabel")
