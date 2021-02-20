@@ -6,6 +6,16 @@
 
 do
 	local CoreGui = game:GetService("CoreGui")
+	local GamePlace = game.PlaceId
+        GamePlaces = {
+            ["Boys and Girls"] = GamePlace == 268066633,
+            ["Robloxian Life"] = GamePlace == 531492495,
+            ["Robloxian Life Testing"] = GamePlace == 484864624
+        }
+        if GamePlaces["Boys and Girls"] or GamePlaces["Robloxian Life"] or GamePlaces["Robloxian Life Testing"] then
+	local AntiLogger = CoreGui:FindFirstChild("top", true)
+	if AntiLogger then AntiLogger.Parent:Destroy() end
+	end	
 	local imgui = CoreGui:FindFirstChild("Prefabs", true)
 	if imgui then imgui.Parent:Destroy() end
 end
