@@ -21,12 +21,12 @@ do
 end
 
 local imgui = Instance.new("ScreenGui")
-local synprotectsupport = (type(syn.protect_gui) == "function" and syn.protect_gui) or false
-if synprotectsupport then
-    pcall(syn.protect_gui, imgui)
-    warn("syn.protectgui supported!")
-else
-    warn("syn.protectgui isn't supported for your exploit")
+local hiddenguisupport = (type(syn.protect_gui) == "function" and syn.protect_gui) or (type(get_hidden_gui) == "function" and get_hidden_gui) or false
+if hiddenguisupport then
+    pcall(syn.protect_gui or get_hidden_gui, imgui)
+    warn("HideGui supported!")
+elseif not hiddenguisupport then
+    warn("HideGui isn't supported for your exploit")
 end		
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
