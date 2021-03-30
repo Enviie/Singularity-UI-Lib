@@ -21,18 +21,13 @@ do
 end
 
 local imgui = Instance.new("ScreenGui")
-local hiddenguisupport = (type(syn.protect_gui) == "function" and syn.protect_gui) or (type(get_hidden_gui) == "function" and get_hidden_gui) or false
-if hiddenguisupport then
-    if syn.protect_gui then
+if syn.protect_gui then
     pcall(protect_gui, imgui)
     warn("Synapse HideGui supported!")
 elseif get_hidden_gui then
     pcall(get_hidden_gui, imgui)
-    warn("Synapse HideGui supported!")
-end		
-elseif not hiddenguisupport then
-    warn("HideGui isn't supported for your exploit")
-end		
+    warn("ProtoSmasher HideGui supported!")
+end				
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
 local Window = Instance.new("ImageLabel")
