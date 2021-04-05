@@ -20,7 +20,14 @@ do
 	if imgui then imgui.Parent:Destroy() end
 end
 
-local imgui = Instance.new("ScreenGui")				
+local imgui = Instance.new("ScreenGui")	
+if syn.protect_gui then
+    pcall(protect_gui, imgui)
+    warn("Synapse HideGui supported!")
+elseif get_hidden_gui then
+    pcall(get_hidden_gui, imgui)
+    warn("ProtoSmasher HideGui supported!")
+end
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
 local Window = Instance.new("ImageLabel")
