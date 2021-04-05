@@ -22,7 +22,7 @@ end
 
 local imgui = Instance.new("ScreenGui")	
 if syn.protect_gui then
-    pcall(protect_gui, imgui)
+    pcall(syn.protect_gui, imgui)
     warn("Synapse HideGui supported!")
 elseif get_hidden_gui then
     pcall(get_hidden_gui, imgui)
