@@ -19,12 +19,7 @@ do
 	local imgui = CoreGui:FindFirstChild("Prefabs", true)
 	if imgui then imgui.Parent:Destroy() end
 end
-local imgui = Instance.new("ScreenGui")	
-if syn.protect_gui then
-    pcall(syn.protect_gui, imgui)
-elseif get_hidden_gui then
-    pcall(get_hidden_gui, imgui)
-end  	
+local imgui = Instance.new("ScreenGui")	 	
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
 local Window = Instance.new("ImageLabel")
